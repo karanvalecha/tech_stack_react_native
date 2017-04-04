@@ -1,7 +1,7 @@
 // Import libs for making a component
 
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Platform } from 'react-native';
 
 // Make a component
 
@@ -27,7 +27,8 @@ const styles = {
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     position: 'relative',
-    elevation: 2
+    elevation: 2,
+    paddingTop: Platform.OS === 'android' ? 0 : 15
   },
   textStyle: {
   	fontSize: 20
