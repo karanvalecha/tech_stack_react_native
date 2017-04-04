@@ -1,20 +1,27 @@
 // Import libs for making a component
 
 import React from 'react';
-import { Text, View, Platform } from 'react-native';
+import { Text, View, Platform, UIManager } from 'react-native';
 
 // Make a component
+
+
 
 const Header = (props) => {
   const { textStyle } = styles
   var { viewStyle } = styles
   viewStyle = props.viewStyles && Object.assign(viewStyle, props.viewStyles) || viewStyle
 
-	return (
+  return (
     <View style={viewStyle} >
       <Text style={textStyle}>  {props.headerText} </Text>
     </View>
   )
+}
+
+// Make way for Android Animation :)
+if (Platform.OS === 'android') {
+  UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
 const styles = {
